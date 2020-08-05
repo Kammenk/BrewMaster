@@ -2,4 +2,7 @@
     <string name="app_name">BrewMaster</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beer_name">Beer Name</string>
+    <string name="beer_category">Beer Category</string>
+    <string name="oops_we_couldn_t_find_the_beer_you_were_looking_for">Oops, we couldn\'t find your beer...</string>
 </resources>

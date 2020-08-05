@@ -1,8 +1,9 @@
-package com.example.brewmaster
+package com.example.brewmaster.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.brewmaster.R
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Timer().schedule(2000){
-            val intent = Intent(this@MainActivity,WrapperActivity::class.java)
+            val intent = Intent(this@MainActivity,
+                WrapperActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -1,4 +1,4 @@
-package com.example.brewmaster.fragments.saved
+package com.example.brewmaster.ui.fragments.saved
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
