@@ -5,10 +5,12 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.brewmaster.R
 import com.example.brewmaster.repository.BeerRepository
 import com.example.brewmaster.viewmodel.BeerViewModel
 import com.example.brewmaster.viewmodel.BeerViewModelProviderFactory
+import kotlinx.android.synthetic.main.activity_wrapper.*
 
 class WrapperActivity : AppCompatActivity() {
 
@@ -22,8 +24,8 @@ class WrapperActivity : AppCompatActivity() {
         val beerViewModelProviderFactory = BeerViewModelProviderFactory(beerRepo)
         viewModel = ViewModelProvider(this,beerViewModelProviderFactory).get(BeerViewModel::class.java)
 
+        bottomNav.setupWithNavController(findNavController(R.id.fragment))
         setupActionBarWithNavController(findNavController(R.id.fragment))
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

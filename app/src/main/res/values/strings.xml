@@ -5,4 +5,5 @@
     <string name="beer_name">Beer Name</string>
     <string name="beer_category">Beer Category</string>
     <string name="oops_we_couldn_t_find_the_beer_you_were_looking_for">Oops, we couldn\'t find your beer...</string>
+    <string name="brewery_name">Brewery name</string>
 </resources>

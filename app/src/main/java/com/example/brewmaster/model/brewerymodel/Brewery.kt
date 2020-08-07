@@ -1,8 +1,9 @@
-package com.example.brewmaster.model
+package com.example.brewmaster.model.brewerymodel
 
-data class Beer(
+data class Brewery(
     val currentPage: Int,
     val `data`: List<Data>,
     val numberOfPages: Int,
+    val status: String,
     val totalResults: Int
 )

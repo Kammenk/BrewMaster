@@ -1,4 +1,4 @@
-package com.example.brewmaster.model
+package com.example.brewmaster.model.beermodel
 
 data class Data(
     val abv: String,

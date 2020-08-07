@@ -2,48 +2,41 @@ package com.example.brewmaster.ui.fragments.search
 
 import android.os.Bundle
 import android.view.*
-import android.widget.ListAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brewmaster.R
-import com.example.brewmaster.adapter.MyAdapter
-import com.example.brewmaster.model.Beer
-import com.example.brewmaster.model.Data
+import com.example.brewmaster.adapter.BeerAdapter
+import com.example.brewmaster.model.beermodel.Data
 import com.example.brewmaster.ui.WrapperActivity
 import com.example.brewmaster.viewmodel.BeerViewModel
-import retrofit2.Call
-import javax.security.auth.callback.Callback
 
 
-class SearchFragment : Fragment() {
+class SearchBeerFragment : Fragment() {
 
     lateinit var viewModel: BeerViewModel
-    lateinit var adapter: MyAdapter
+    lateinit var adapter: BeerAdapter
     lateinit var recyclerView: RecyclerView
-    lateinit var noBeetxt: TextView
+    lateinit var noBeerTxt: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
+        val view = inflater.inflate(R.layout.fragment_search_beer, container, false)
         (requireActivity() as AppCompatActivity).supportActionBar?.elevation = 0F
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
 
 
-        noBeetxt = view.findViewById(R.id.noResultTxt)
+        noBeerTxt = view.findViewById(R.id.noResultBeerTxt)
         viewModel = (activity as WrapperActivity).viewModel
         setHasOptionsMenu(true)
-        recyclerView = view.findViewById(R.id.searchRecyclerView)
+        recyclerView = view.findViewById(R.id.searchBeerRecyclerView)
         setupRecyclerView()
 
-        //viewModel.getAllBeers()
         viewModel.allBeers.observe(viewLifecycleOwner, Observer { response ->
             response.body()?.data?.let {
                 adapter.differ.submitList(it)
@@ -84,13 +77,8 @@ class SearchFragment : Fragment() {
                             }
                         })
                     }
-
-
-
-
                     return true
                 }
-
                 override fun onQueryTextChange(newText: String?): Boolean {
                     return false
                 }
@@ -102,15 +90,15 @@ class SearchFragment : Fragment() {
     }
 
     private fun hideMissingBeerMessage() {
-        noBeetxt.visibility = View.INVISIBLE
+        noBeerTxt.visibility = View.INVISIBLE
     }
 
     private fun showMissingBeerMessage() {
-        noBeetxt.visibility = View.VISIBLE
+        noBeerTxt.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView(){
-        adapter = MyAdapter()
+        adapter = BeerAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }

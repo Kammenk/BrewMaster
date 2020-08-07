@@ -1,4 +1,6 @@
-package com.example.brewmaster.model
+package com.example.brewmaster.model.beermodel
+
+import com.example.brewmaster.model.beermodel.Category
 
 data class Style(
     val abvMax: String,

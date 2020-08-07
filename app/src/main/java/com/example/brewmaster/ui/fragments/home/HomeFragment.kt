@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
         view.findViewById<Button>(R.id.beerSearch).setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_searchBeerFragment)
         }
 
 

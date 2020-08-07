@@ -7,33 +7,35 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brewmaster.R
-import com.example.brewmaster.model.Data
+import com.example.brewmaster.model.brewerymodel.Data
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.row_item.view.*
+import kotlinx.android.synthetic.main.beer_row_item.view.*
+import kotlinx.android.synthetic.main.beer_row_item.view.result_image
+import kotlinx.android.synthetic.main.beer_row_item.view.result_title
+import kotlinx.android.synthetic.main.brewery_row_item.view.*
 
-class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class BreweryAdapterAdapter: RecyclerView.Adapter<BreweryAdapterAdapter.MyViewHolder>(){
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_item,parent,false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreweryAdapterAdapter.MyViewHolder {
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.brewery_row_item,parent,false))
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
-    override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BreweryAdapterAdapter.MyViewHolder, position: Int) {
 
         val currentItem = differ.currentList[position]
 
         holder.itemView.result_title.text = currentItem.name
-        holder.itemView.result_alk.text = currentItem.abv
-        holder.itemView.result_category.text = currentItem.style.name
-        if(currentItem.labels !== null) {
-            Picasso.get().load(currentItem.labels.contentAwareMedium).fit().centerInside()
+        holder.itemView.brewWebsite.text = currentItem.website
+        if(currentItem.images !== null) {
+            Picasso.get().load(currentItem.images.squareMedium).fit().centerInside()
                 .into(holder.itemView.result_image)
         }
     }
