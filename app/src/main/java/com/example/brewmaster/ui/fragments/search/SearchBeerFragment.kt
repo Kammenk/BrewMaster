@@ -68,6 +68,7 @@ class SearchBeerFragment : Fragment() {
                                 response.body()?.data?.let {
                                     adapter.differ.submitList(it)
                                     println("list of data ${it[0].name}")
+                                    println("list of data ${it[0].style.name}")
                                     println("adapter size ${adapter.differ.currentList.size}")
                                     //adapter.notifyDataSetChanged()
                                 }

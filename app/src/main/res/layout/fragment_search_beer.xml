@@ -19,21 +19,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/noResultImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_no_data"
+        android:tint="@android:color/black"
+
+        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toTopOf="@id/noResultBeerTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/noResultBeerTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+
+        android:fontFamily="@font/rubik_black"
         android:text="@string/oops_we_couldn_t_find_the_beer_you_were_looking_for"
         android:textSize="18sp"
-        android:fontFamily="@font/rubik_black"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.40" />
-
+        app:layout_constraintTop_toBottomOf="@id/noResultImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
